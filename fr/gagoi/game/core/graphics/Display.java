@@ -24,4 +24,8 @@ public class Display extends JFrame{
 	public void render() {
 		canvas.render();
 	}
+	
+	public void drawFinalScreen(){
+		canvas.drawFinalScreen();
+	}
 }

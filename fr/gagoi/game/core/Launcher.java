@@ -15,9 +15,9 @@ public class Launcher extends JFrame {
 
 	private JButton startButton;
 	private JLabel bulletSpawnrateLabel, bombSpawnrateLabel, bulletSizeLabel, bulletSpeedLabel, playerSpeedLabel,
-			playerSizeLabel, bulletPerWaveLabel, bombPerWaveLabel, bombMaxTimeLabel, bombSizeLabel;
+			playerSizeLabel, bulletPerWaveLabel, bombPerWaveLabel, bombMaxTimeLabel, bombSizeLabel, survivalScoreLabel;
 	private JTextField bulletSpawnrateTf, bombSpawnrateTf, bulletSizeTf, bulletSpeedTf, playerSpeedTf, playerSizeTf,
-			bulletPerWaveTf, bombPerWaveTf, bombMaxTimeTf, bombSizeTf;
+			bulletPerWaveTf, bombPerWaveTf, bombMaxTimeTf, bombSizeTf, survivalScoreTf;
 
 	public Launcher() {
 		setTitle("Launcher");
@@ -25,7 +25,7 @@ public class Launcher extends JFrame {
 		setSize(new Dimension(500, 300));
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
-		setLayout(new GridLayout(11, 2));
+		setLayout(new GridLayout(12, 2));
 		init();
 		setVisible(true);
 	}
@@ -78,6 +78,10 @@ public class Launcher extends JFrame {
 		bombSizeLabel = new JLabel("Bomb size (Pixel):");
 		bombSizeTf = new JTextField();
 		bombSizeTf.setText("" + 30);
+		
+		survivalScoreLabel = new JLabel("Survival score (-1 --> Infinite power mode of doom :");
+		survivalScoreTf = new JTextField();
+		survivalScoreTf.setText("" + 10);
 
 		add(playerSizeLabel);
 		add(playerSizeTf);
@@ -108,6 +112,9 @@ public class Launcher extends JFrame {
 
 		add(bombPerWaveLabel);
 		add(bombPerWaveTf);
+		
+		add(survivalScoreLabel);
+		add(survivalScoreTf);
 
 		add(startButton);
 	}
@@ -121,10 +128,11 @@ public class Launcher extends JFrame {
 		int bulletPerWave = Integer.parseInt(bulletPerWaveTf.getText());
 		int bombPerWave = Integer.parseInt(bombPerWaveTf.getText());
 		int bombSize = Integer.parseInt(bombSizeTf.getText());
+		int survivalScore = Integer.parseInt(survivalScoreTf.getText());
 		float bulletSpeed = Float.parseFloat(bulletSpeedTf.getText());
 		float playerSpeed = Float.parseFloat(playerSpeedTf.getText());
 		new Thread(new Game(bulletSpawnrate, bombSpawnrate, playerSize, bulletSize, bulletPerWave, bombPerWave,
-				bombMaxTime, bombSize, playerSpeed, bulletSpeed)).start();
+				bombMaxTime, bombSize, survivalScore, playerSpeed, bulletSpeed)).start();
 		dispose();
 	}
 

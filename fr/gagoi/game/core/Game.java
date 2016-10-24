@@ -16,11 +16,13 @@ public class Game implements Runnable {
 	public static Player p = new Player();
 
 	public static int bulletSpawnrate, bombSpawnrate, playerSize, bulletSize, bulletPerWave, bombPerWave, bombMaxTime,
-			bombSize;
+			bombSize, survivalScore;
 	public static float bulletSpeed, playerSpeed;
+	public static int timeInSec;
+	public static boolean running = true;
 
 	public Game(int bulletSpawnrate, int bombSpawnrate, int playerSize, int bulletSize, int bulletPerWave,
-			int bombPerWave, int bombMaxTime, int bombSize, float playerSpeed, float bulletSpeed) {
+			int bombPerWave, int bombMaxTime, int bombSize, int survivalscore, float playerSpeed, float bulletSpeed) {
 		display = new Display();
 		Game.bulletSpawnrate = bulletSpawnrate;
 		Game.playerSize = playerSize;
@@ -31,14 +33,20 @@ public class Game implements Runnable {
 		Game.bombSpawnrate = bombSpawnrate;
 		Game.bombMaxTime = bombMaxTime;
 		Game.bombSize = bombSize;
+		Game.survivalScore = survivalscore;
 	}
 
 	public void run() {
 		long startTime = System.currentTimeMillis();
-		int i = 0, k = 0, y = 0;
-		while (true) {
+		int i = 0, k = 0, y = 0, t = 0;
+		while (running) {
 			long currentTime = System.currentTimeMillis();
 			if (currentTime >= startTime + 1000 / 120) {
+				if (t >= 240) {
+					timeInSec++;
+					t = 0;
+				}
+				t++;
 				if (y == 0) {
 					display.render();
 					startTime = System.currentTimeMillis();
@@ -75,6 +83,13 @@ public class Game implements Runnable {
 				k++;
 
 			}
+
+			if (survivalScore > 0 && survivalScore <= p.getScore()) {
+				running = false;
+				Game.p.increaseScore(1);
+				display.drawFinalScreen();
+			}
+
 		}
 	}
 }
