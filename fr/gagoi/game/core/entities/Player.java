@@ -1,6 +1,7 @@
 package fr.gagoi.game.core.entities;
 
 import java.awt.Color;
+import java.awt.Polygon;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -74,6 +75,15 @@ public class Player implements IEntity, MouseListener {
 
 	public int getScore() {
 		return score;
+	}
+
+	public Polygon getHitbox() {
+		return new Polygon(
+				new int[] { (int) getPosX(), (int) getPosX() + getSize(), (int) getPosX() + getSize(),
+						(int) getPosX() },
+				new int[] { (int) getPosY(), (int) getPosY(), (int) getPosY() + getSize(),
+						(int) getPosY() + getSize() },
+				4);
 	}
 
 }

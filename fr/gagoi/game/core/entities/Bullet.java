@@ -1,7 +1,6 @@
 package fr.gagoi.game.core.entities;
 
 import java.awt.Color;
-import java.awt.Polygon;
 import java.util.Random;
 
 import fr.gagoi.game.core.Game;
@@ -40,7 +39,7 @@ public class Bullet implements IEntity {
 	public float getPosY() {
 		return posY;
 	}
-
+;
 	public int getSize() {
 		return Game.bulletSize;
 	}
@@ -68,20 +67,9 @@ public class Bullet implements IEntity {
 	public boolean isAlive() {
 		return isAlive;
 	}
-
-	public boolean hitPlayer() {
-		Polygon p = Game.p.getHitbox();
-		for (float x = posX; x < posX + getSize(); x++) {
-			for (float y = posY; y < posY + getSize(); y++) {
-				if (p.contains(x, y))
-					return true;
-			}
-		}
-		return false;
-	}
-
+	
 	@Override
 	public float getSpeed() {
-		return 1/Game.bulletSpeed;
+		return 1 / Game.bulletSpeed;
 	}
 }

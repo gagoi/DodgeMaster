@@ -34,7 +34,7 @@ public class GameCanvas extends Canvas {
 		for (int i = 0; i < Game.bombs.size(); i++) {
 			Bomb b = Game.bombs.elementAt(i);
 			g.setColor(b.getColor());
-			g.fillRect((int) b.getPosX(),(int) b.getPosY(), b.getSize(), b.getSize());
+			g.fillOval((int) b.getPosX(),(int) b.getPosY(), b.getSize(), b.getSize());
 		}
 		
 		g.setColor(Color.WHITE);
