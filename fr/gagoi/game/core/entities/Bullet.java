@@ -8,6 +8,7 @@ import fr.gagoi.game.core.Game;
 public class Bullet implements IEntity {
 	private float posX, posY, vecX, vecY;
 	private boolean isAlive = true;
+	private int size =  Game.bulletSize + new Random().nextInt(Game.bulletSize);
 
 	public Bullet() {
 		switch (new Random().nextInt(4)) {
@@ -41,7 +42,7 @@ public class Bullet implements IEntity {
 	}
 ;
 	public int getSize() {
-		return Game.bulletSize;
+		return size;
 	}
 
 	public Color getColor() {

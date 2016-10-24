@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import fr.gagoi.game.core.Game;
 import fr.gagoi.game.core.entities.Bomb;
 import fr.gagoi.game.core.entities.Bullet;
+import fr.gagoi.game.core.entities.Healer;
 
 public class GameCanvas extends Canvas {
 	private static final long serialVersionUID = 7242788760643934733L;
@@ -31,6 +32,12 @@ public class GameCanvas extends Canvas {
 			Bomb b = Game.bombs.elementAt(i);
 			g.setColor(b.getColor());
 			g.fillOval((int) b.getPosX(),(int) b.getPosY(), b.getSize(), b.getSize());
+		}
+
+		for (int i = 0; i < Game.healers.size(); i++) {
+			Healer h = Game.healers.elementAt(i);
+			g.setColor(h.getColor());
+			g.fillRect((int) h.getPosX(),(int) h.getPosY(), h.getSize(),h.getSize());
 		}
 		
 		for (int i = 0; i < Game.bullets.size(); i++) {

@@ -15,17 +15,19 @@ public class Launcher extends JFrame {
 
 	private JButton startButton;
 	private JLabel bulletSpawnrateLabel, bombSpawnrateLabel, bulletSizeLabel, bulletSpeedLabel, playerSpeedLabel,
-			playerSizeLabel, bulletPerWaveLabel, bombPerWaveLabel, bombMaxTimeLabel, bombSizeLabel, survivalScoreLabel;
+			playerSizeLabel, bulletPerWaveLabel, bombPerWaveLabel, bombMaxTimeLabel, bombSizeLabel, survivalScoreLabel,
+			healerSpawnrateLabel, healerPerWaveLabel, healerMaxTimeLabel, healerSizeLabel, healerPowerLabel;
 	private JTextField bulletSpawnrateTf, bombSpawnrateTf, bulletSizeTf, bulletSpeedTf, playerSpeedTf, playerSizeTf,
-			bulletPerWaveTf, bombPerWaveTf, bombMaxTimeTf, bombSizeTf, survivalScoreTf;
+			bulletPerWaveTf, bombPerWaveTf, bombMaxTimeTf, bombSizeTf, survivalScoreTf, healerSpawnrateTf,
+			healerPerWaveTf, healerMaxTimeTf, healerSizeTf, healerPowerTf;
 
 	public Launcher() {
 		setTitle("Launcher");
 		setResizable(false);
-		setSize(new Dimension(500, 300));
+		setSize(new Dimension(500, 500));
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
-		setLayout(new GridLayout(12, 2));
+		setLayout(new GridLayout(17, 2));
 		init();
 		setVisible(true);
 	}
@@ -41,27 +43,27 @@ public class Launcher extends JFrame {
 
 		bulletSpawnrateLabel = new JLabel("Bullet's spawnrate (Higher is easier):");
 		bulletSpawnrateTf = new JTextField();
-		bulletSpawnrateTf.setText("" + 20);
+		bulletSpawnrateTf.setText("" + 200);
 
 		bombSpawnrateLabel = new JLabel("Bomb's spawnrate (Higher is easier):");
 		bombSpawnrateTf = new JTextField();
-		bombSpawnrateTf.setText("" + 60);
+		bombSpawnrateTf.setText("" + 240);
 
 		bulletSizeLabel = new JLabel("Bullet's size (Pixel):");
 		bulletSizeTf = new JTextField();
-		bulletSizeTf.setText("" + 8);
+		bulletSizeTf.setText("" + 15);
 
 		bulletSpeedLabel = new JLabel("Bullet's speed (Higher is easier):");
 		bulletSpeedTf = new JTextField();
-		bulletSpeedTf.setText("" + 2.2f);
+		bulletSpeedTf.setText("" + 2.0f);
 
 		bulletPerWaveLabel = new JLabel("Bullet(s) per wave:");
 		bulletPerWaveTf = new JTextField();
-		bulletPerWaveTf.setText("" + 5);
+		bulletPerWaveTf.setText("" + 12);
 
 		bombPerWaveLabel = new JLabel("Bomb(s) per wave:");
 		bombPerWaveTf = new JTextField();
-		bombPerWaveTf.setText("" + 4);
+		bombPerWaveTf.setText("" + 2);
 
 		playerSizeLabel = new JLabel("Player's size  (Pixel) :");
 		playerSizeTf = new JTextField();
@@ -69,19 +71,39 @@ public class Launcher extends JFrame {
 
 		playerSpeedLabel = new JLabel("Player's speed (Higher is easier):");
 		playerSpeedTf = new JTextField();
-		playerSpeedTf.setText("" + 4);
+		playerSpeedTf.setText("" + 5);
 
 		bombMaxTimeLabel = new JLabel("Bomb max time (Higher is easier):");
 		bombMaxTimeTf = new JTextField();
 		bombMaxTimeTf.setText("" + 150);
-		
+
 		bombSizeLabel = new JLabel("Bomb size (Pixel):");
 		bombSizeTf = new JTextField();
 		bombSizeTf.setText("" + 100);
-		
+
 		survivalScoreLabel = new JLabel("Survival score (-1 --> Infinite) :");
 		survivalScoreTf = new JTextField();
 		survivalScoreTf.setText("" + 10);
+
+		healerMaxTimeLabel = new JLabel("Healer max time (Higher is easier):");
+		healerMaxTimeTf = new JTextField();
+		healerMaxTimeTf.setText("" + 250);
+
+		healerSizeLabel = new JLabel("Healer size (Pixel):");
+		healerSizeTf = new JTextField();
+		healerSizeTf.setText("" + 10);
+
+		healerPerWaveLabel = new JLabel("Healer(s) per wave:");
+		healerPerWaveTf = new JTextField();
+		healerPerWaveTf.setText("" + 1);
+
+		healerSpawnrateLabel = new JLabel("Healer's spawnrate (Less is easier):");
+		healerSpawnrateTf = new JTextField();
+		healerSpawnrateTf.setText("" + 1000);
+
+		healerPowerLabel = new JLabel("Healer's power (More is easier):");
+		healerPowerTf = new JTextField();
+		healerPowerTf.setText("" +1);
 
 		add(playerSizeLabel);
 		add(playerSizeTf);
@@ -103,16 +125,31 @@ public class Launcher extends JFrame {
 
 		add(bombMaxTimeLabel);
 		add(bombMaxTimeTf);
-		
+
 		add(bombSizeLabel);
 		add(bombSizeTf);
-		
+
 		add(bombSpawnrateLabel);
 		add(bombSpawnrateTf);
 
 		add(bombPerWaveLabel);
 		add(bombPerWaveTf);
-		
+
+		add(healerMaxTimeLabel);
+		add(healerMaxTimeTf);
+
+		add(healerPowerLabel);
+		add(healerPowerTf);
+
+		add(healerSizeLabel);
+		add(healerSizeTf);
+
+		add(healerSpawnrateLabel);
+		add(healerSpawnrateTf);
+
+		add(healerPerWaveLabel);
+		add(healerPerWaveTf);
+
 		add(survivalScoreLabel);
 		add(survivalScoreTf);
 
@@ -129,10 +166,16 @@ public class Launcher extends JFrame {
 		int bombPerWave = Integer.parseInt(bombPerWaveTf.getText());
 		int bombSize = Integer.parseInt(bombSizeTf.getText());
 		int survivalScore = Integer.parseInt(survivalScoreTf.getText());
+		int healerMaxTime = Integer.parseInt(healerMaxTimeTf.getText());
+		int healerPerWave = Integer.parseInt(healerPerWaveTf.getText());
+		int healerSize = Integer.parseInt(healerSizeTf.getText());
+		int healerSpawnrate = Integer.parseInt(healerSpawnrateTf.getText());
+		int healerPower = Integer.parseInt(healerPowerTf.getText());
 		float bulletSpeed = Float.parseFloat(bulletSpeedTf.getText());
 		float playerSpeed = Float.parseFloat(playerSpeedTf.getText());
 		new Thread(new Game(bulletSpawnrate, bombSpawnrate, playerSize, bulletSize, bulletPerWave, bombPerWave,
-				bombMaxTime, bombSize, survivalScore, playerSpeed, bulletSpeed)).start();
+				bombMaxTime, bombSize, survivalScore, healerMaxTime, healerPerWave, healerSize, healerSpawnrate,
+				healerPower, playerSpeed, bulletSpeed)).start();
 		dispose();
 	}
 
