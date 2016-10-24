@@ -11,7 +11,7 @@ public class Display extends JFrame{
 	
 	
 	public Display() {
-		setTitle("AdcDodgeInFightOMATON2");
+		setTitle("AdcDodgeInFightOMATON");
 		setResizable(false);
 		setSize(size);
 		setLocationRelativeTo(null);

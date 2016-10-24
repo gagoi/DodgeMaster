@@ -41,7 +41,7 @@ public class Launcher extends JFrame {
 
 		bulletSpawnrateLabel = new JLabel("Bullet's spawnrate (Higher is easier):");
 		bulletSpawnrateTf = new JTextField();
-		bulletSpawnrateTf.setText("" + 30);
+		bulletSpawnrateTf.setText("" + 20);
 
 		bombSpawnrateLabel = new JLabel("Bomb's spawnrate (Higher is easier):");
 		bombSpawnrateTf = new JTextField();
@@ -49,15 +49,15 @@ public class Launcher extends JFrame {
 
 		bulletSizeLabel = new JLabel("Bullet's size (Pixel):");
 		bulletSizeTf = new JTextField();
-		bulletSizeTf.setText("" + 5);
+		bulletSizeTf.setText("" + 8);
 
 		bulletSpeedLabel = new JLabel("Bullet's speed (Higher is easier):");
 		bulletSpeedTf = new JTextField();
-		bulletSpeedTf.setText("" + 1.9f);
+		bulletSpeedTf.setText("" + 2.2f);
 
 		bulletPerWaveLabel = new JLabel("Bullet(s) per wave:");
 		bulletPerWaveTf = new JTextField();
-		bulletPerWaveTf.setText("" + 8);
+		bulletPerWaveTf.setText("" + 5);
 
 		bombPerWaveLabel = new JLabel("Bomb(s) per wave:");
 		bombPerWaveTf = new JTextField();
@@ -65,7 +65,7 @@ public class Launcher extends JFrame {
 
 		playerSizeLabel = new JLabel("Player's size  (Pixel) :");
 		playerSizeTf = new JTextField();
-		playerSizeTf.setText("" + 10);
+		playerSizeTf.setText("" + 20);
 
 		playerSpeedLabel = new JLabel("Player's speed (Higher is easier):");
 		playerSpeedTf = new JTextField();
@@ -77,9 +77,9 @@ public class Launcher extends JFrame {
 		
 		bombSizeLabel = new JLabel("Bomb size (Pixel):");
 		bombSizeTf = new JTextField();
-		bombSizeTf.setText("" + 30);
+		bombSizeTf.setText("" + 100);
 		
-		survivalScoreLabel = new JLabel("Survival score (-1 --> Infinite power mode of doom :");
+		survivalScoreLabel = new JLabel("Survival score (-1 --> Infinite) :");
 		survivalScoreTf = new JTextField();
 		survivalScoreTf.setText("" + 10);
 
