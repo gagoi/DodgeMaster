@@ -41,13 +41,21 @@ public class Launcher extends JFrame {
 			}
 		});
 
+		playerSizeLabel = new JLabel("Player's size  (Pixel) :");
+		playerSizeTf = new JTextField();
+		playerSizeTf.setText("" + 20);
+
+		playerSpeedLabel = new JLabel("Player's speed (Higher is easier):");
+		playerSpeedTf = new JTextField();
+		playerSpeedTf.setText("" + 5);
+
+		survivalScoreLabel = new JLabel("Survival score (-1 --> Infinite) :");
+		survivalScoreTf = new JTextField();
+		survivalScoreTf.setText("" + 10);
+
 		bulletSpawnrateLabel = new JLabel("Bullet's spawnrate (Higher is easier):");
 		bulletSpawnrateTf = new JTextField();
 		bulletSpawnrateTf.setText("" + 200);
-
-		bombSpawnrateLabel = new JLabel("Bomb's spawnrate (Higher is easier):");
-		bombSpawnrateTf = new JTextField();
-		bombSpawnrateTf.setText("" + 240);
 
 		bulletSizeLabel = new JLabel("Bullet's size (Pixel):");
 		bulletSizeTf = new JTextField();
@@ -60,18 +68,14 @@ public class Launcher extends JFrame {
 		bulletPerWaveLabel = new JLabel("Bullet(s) per wave:");
 		bulletPerWaveTf = new JTextField();
 		bulletPerWaveTf.setText("" + 12);
+		
+		bombSpawnrateLabel = new JLabel("Bomb's spawnrate (Higher is easier):");
+		bombSpawnrateTf = new JTextField();
+		bombSpawnrateTf.setText("" + 240);
 
 		bombPerWaveLabel = new JLabel("Bomb(s) per wave:");
 		bombPerWaveTf = new JTextField();
 		bombPerWaveTf.setText("" + 2);
-
-		playerSizeLabel = new JLabel("Player's size  (Pixel) :");
-		playerSizeTf = new JTextField();
-		playerSizeTf.setText("" + 20);
-
-		playerSpeedLabel = new JLabel("Player's speed (Higher is easier):");
-		playerSpeedTf = new JTextField();
-		playerSpeedTf.setText("" + 5);
 
 		bombMaxTimeLabel = new JLabel("Bomb max time (Higher is easier):");
 		bombMaxTimeTf = new JTextField();
@@ -80,10 +84,6 @@ public class Launcher extends JFrame {
 		bombSizeLabel = new JLabel("Bomb size (Pixel):");
 		bombSizeTf = new JTextField();
 		bombSizeTf.setText("" + 100);
-
-		survivalScoreLabel = new JLabel("Survival score (-1 --> Infinite) :");
-		survivalScoreTf = new JTextField();
-		survivalScoreTf.setText("" + 10);
 
 		healerMaxTimeLabel = new JLabel("Healer max time (Higher is easier):");
 		healerMaxTimeTf = new JTextField();
