@@ -11,6 +11,7 @@ public class Player implements IEntity, MouseListener {
 	private float posX = 480, posY = 250, targetX = posX, targetY = posY;
 	private double velocityX, velocityY;
 	private int score;
+	private Hitbox hitbox;	
 
 	public float getPosX() {
 		return posX;
@@ -77,13 +78,8 @@ public class Player implements IEntity, MouseListener {
 		return score;
 	}
 
-	public Polygon getHitbox() {
-		return new Polygon(
-				new int[] { (int) getPosX(), (int) getPosX() + getSize(), (int) getPosX() + getSize(),
-						(int) getPosX() },
-				new int[] { (int) getPosY(), (int) getPosY(), (int) getPosY() + getSize(),
-						(int) getPosY() + getSize() },
-				4);
+	public Hitbox getHitbox() {
+		return this.hitbox;
 	}
 
 }
